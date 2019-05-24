@@ -1,0 +1,92 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/test/"
+      },
+
+      "response": {
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "status": 200,
+        "bodyFileName": "testData1.json"
+      }
+    },
+    {
+      "id": "8c5db8b0-2db4-4ad7-a99f-38c9b00da3f7",
+      "request": {
+        "method": "GET",
+        "urlPattern": "/test/([A-Za-z0-9]*)/"
+      },
+      "response": {
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "status": 200,
+        "body": "[{\"id\": 5, \"value\": \"test 5\"}, {\"id\": 6, \"value\": \"test 6\"}]"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPattern": "/test/param/ss",
+        "queryParameters": {
+          "param2": {
+            "equalTo": "mock"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "[{\"id\": 8, \"value\": \"test 8\"}, {\"id\": 9, \"value\": \"test 9\"}]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "urlPattern": "/test/param/?param1=([A-Za-z0-9]*)"
+      },
+      "response": {
+        "status": 200,
+        "body": "Updated"
+      }
+    },
+
+
+
+
+
+    {
+      "request": {
+        "method": "GET",
+        "url": "/error/400"
+      },
+      "response": {
+        "status": 400,
+        "body": "error 400"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/error/500"
+      },
+      "response": {
+        "status": 500,
+        "body": "error 500"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/error/404"
+      },
+      "response": {
+        "status": 404,
+        "body": "error 404"
+      }
+    }
+  ]
+}
